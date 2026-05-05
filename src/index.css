@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@300;400;500;600&display=swap");
+
+html {
+  scroll-behavior: smooth;
+}
+body {
+  background: #f5f1ea;
+  color: #1f1b16;
+}
+::selection {
+  background: #c46a4a;
+  color: #f5f1ea;
+}
