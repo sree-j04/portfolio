@@ -28,7 +28,11 @@ export const projects: Project[] = [
     category: "academic",
     year: "2025",
     links: [
-      { label: "View Figma Prototype", url: "[YOUR_FIGMA_URL]", type: "figma" },
+      {
+        label: "View Figma Prototype",
+        url: "https://lid-purple-03986026.figma.site/?fbclid=PAVERFWARnJn5leHRuA2FlbQIxMABzcnRjBmFwcF9pZA8xMjQwMjQ1NzQyODc0MTQAAac8jaqgLLV5ESbyPRdW2D1gxh45B4ZrK2jRgdBbkhYynZW3kSdsW19GzVtDhQ_aem_YRlED9LjePTykO1n3OB-Qw",
+        type: "figma",
+      },
     ],
   },
   {
