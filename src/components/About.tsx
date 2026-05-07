@@ -13,7 +13,7 @@ export default function About() {
         >
           <p className="eyebrow mb-3">About</p>
           <h2 className="font-serif font-light text-4xl md:text-5xl tracking-[-0.025em] text-walnut title-rule">
-            A bit <span className="italic text-terracotta">about me</span>
+            Get to <span className="italic text-terracotta">know me</span>
           </h2>
         </motion.div>
 
