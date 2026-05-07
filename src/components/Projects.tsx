@@ -39,7 +39,7 @@ export default function Projects() {
             <span className="italic text-terracotta">Projects</span>
           </h2>
           <p className="mt-6 max-w-2xl text-walnut/75">
-            A mix of coursework, personal AI builds, and applied industry work.
+            A mix of coursework, personal AI builds, and applied industry work!
           </p>
         </div>
 

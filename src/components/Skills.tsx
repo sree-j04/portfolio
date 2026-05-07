@@ -27,7 +27,8 @@ export default function Skills() {
         <div className="md:col-span-4">
           <p className="eyebrow mb-3">Toolkit</p>
           <h2 className="font-serif font-light text-4xl md:text-5xl tracking-[-0.025em] text-walnut title-rule">
-            Skills <span className="italic text-terracotta">&amp; certs</span>
+            Skills{" "}
+            <span className="italic text-terracotta">&amp; certifications</span>
           </h2>
         </div>
 

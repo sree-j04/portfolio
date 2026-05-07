@@ -19,7 +19,7 @@ export default function Contact() {
         </p>
         <h2 className="font-serif text-5xl md:text-7xl leading-[1.05]">
           Let's build something{" "}
-          <em className="text-terracotta not-italic">thoughtful.</em>
+          <em className="text-terracotta not-italic">thoughtful!</em>
         </h2>
         <a
           href={`mailto:${profile.email}`}
