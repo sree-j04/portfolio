@@ -32,6 +32,7 @@ export default {
         },
 
         // Earthy brand palette
+        cream: "hsl(var(--cream))",
         terracotta: {
           DEFAULT: "hsl(var(--terracotta))",
           deep: "hsl(var(--terracotta-deep))",
@@ -40,17 +41,21 @@ export default {
           DEFAULT: "hsl(var(--forest))",
           soft: "hsl(var(--forest-soft))",
         },
-        ochre: "hsl(var(--ochre))",
+        sage: "hsl(var(--sage))",
+        teal: "hsl(var(--teal))",
         clay: "hsl(var(--clay))",
         walnut: "hsl(var(--walnut))",
+        espresso: "hsl(var(--espresso))",
+        mustard: "hsl(var(--mustard))",
+        gold: "hsl(var(--gold))",
 
-        // Legacy aliases — keeps your old classes working
-        cream: "#F5F1EA",
-        charcoal: "#1F1B16",
-        line: "#E5DED2",
+        // Legacy aliases — keeps old classes working
+        ochre: "hsl(var(--sage))",
+        charcoal: "hsl(var(--walnut))",
+        line: "hsl(var(--border))",
       },
       fontFamily: {
-        serif: ['"Fraunces"', "Georgia", "serif"],
+        serif: ['"Fraunces"', '"Cormorant Garamond"', "Georgia", "serif"],
         sans: ['"Inter"', "system-ui", "sans-serif"],
       },
       borderRadius: {

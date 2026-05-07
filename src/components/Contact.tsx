@@ -6,15 +6,15 @@ export default function Contact() {
   return (
     <section
       id="contact"
-      className="px-6 py-24 md:py-40 bg-charcoal text-cream"
+      className="on-dark relative px-6 py-24 md:py-40 overflow-hidden"
     >
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        className="max-w-4xl mx-auto text-center"
+        className="max-w-4xl mx-auto text-center relative"
       >
-        <p className="text-terracotta text-sm tracking-[0.2em] uppercase mb-6">
+        <p className="eyebrow mb-6" style={{ color: "hsl(var(--mustard))" }}>
           Get in touch
         </p>
         <h2 className="font-serif text-5xl md:text-7xl leading-[1.05]">
@@ -23,7 +23,7 @@ export default function Contact() {
         </h2>
         <a
           href={`mailto:${profile.email}`}
-          className="inline-block mt-10 text-lg md:text-xl border-b border-cream/40 pb-1 hover:border-terracotta hover:text-terracotta transition"
+          className="inline-block mt-10 text-lg md:text-xl border-b border-[hsl(var(--cream)/0.4)] pb-1 hover:border-terracotta hover:text-terracotta transition-colors"
         >
           {profile.email}
         </a>
@@ -32,7 +32,7 @@ export default function Contact() {
             href={profile.github}
             target="_blank"
             rel="noreferrer"
-            className="hover:text-terracotta"
+            className="hover:text-terracotta transition-colors"
           >
             <Github size={22} />
           </a>
@@ -40,11 +40,14 @@ export default function Contact() {
             href={profile.linkedin}
             target="_blank"
             rel="noreferrer"
-            className="hover:text-terracotta"
+            className="hover:text-terracotta transition-colors"
           >
             <Linkedin size={22} />
           </a>
-          <a href={`mailto:${profile.email}`} className="hover:text-terracotta">
+          <a
+            href={`mailto:${profile.email}`}
+            className="hover:text-terracotta transition-colors"
+          >
             <Mail size={22} />
           </a>
         </div>

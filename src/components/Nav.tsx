@@ -23,19 +23,24 @@ export default function Nav() {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all ${
-        scrolled ? "bg-cream/85 backdrop-blur border-b border-line" : ""
+        scrolled
+          ? "bg-[hsl(var(--cream)/0.85)] backdrop-blur border-b border-border"
+          : ""
       }`}
     >
       <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
-        <a href="#top" className="font-serif text-xl tracking-tight">
-          {profile.shortName}.
+        <a
+          href="#top"
+          className="font-serif font-light text-xl tracking-tight text-walnut"
+        >
+          {profile.shortName}
         </a>
-        <nav className="hidden md:flex items-center gap-8 text-sm">
+        <nav className="hidden md:flex items-center gap-8 text-sm text-walnut">
           {links.map((l) => (
             <a
               key={l.href}
               href={l.href}
-              className="hover:text-terracotta transition"
+              className="hover:text-terracotta transition-colors"
             >
               {l.label}
             </a>
@@ -44,13 +49,13 @@ export default function Nav() {
             href={profile.resumeUrl}
             target="_blank"
             rel="noreferrer"
-            className="px-4 py-2 bg-charcoal text-cream rounded-full hover:bg-terracotta transition"
+            className="px-4 py-2 bg-walnut text-cream rounded-full hover:bg-terracotta-deep transition-colors"
           >
             Resume
           </a>
         </nav>
         <button
-          className="md:hidden"
+          className="md:hidden text-walnut"
           onClick={() => setOpen(!open)}
           aria-label="Menu"
         >
@@ -58,13 +63,23 @@ export default function Nav() {
         </button>
       </div>
       {open && (
-        <div className="md:hidden border-t border-line bg-cream px-6 py-4 flex flex-col gap-4">
+        <div className="md:hidden border-t border-border bg-[hsl(var(--cream)/0.95)] backdrop-blur px-6 py-4 flex flex-col gap-4 text-walnut">
           {links.map((l) => (
-            <a key={l.href} href={l.href} onClick={() => setOpen(false)}>
+            <a
+              key={l.href}
+              href={l.href}
+              onClick={() => setOpen(false)}
+              className="hover:text-terracotta transition-colors"
+            >
               {l.label}
             </a>
           ))}
-          <a href={profile.resumeUrl} target="_blank" rel="noreferrer">
+          <a
+            href={profile.resumeUrl}
+            target="_blank"
+            rel="noreferrer"
+            className="text-terracotta-deep"
+          >
             Resume ↗
           </a>
         </div>
