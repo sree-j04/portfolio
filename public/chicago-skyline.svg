@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 320" preserveAspectRatio="xMidYMax slice" fill="currentColor">
+  <!-- Left: low/mid rises -->
+  <path d="M0,320 L0,240 L60,240 L60,210 L110,210 L110,235 L150,235 L150,200 L195,200 L195,225 L230,225 L230,260 L260,260 L260,320 Z"/>
+
+  <!-- Mid-low cluster -->
+  <path d="M260,320 L260,230 L300,230 L300,195 L335,195 L335,170 L370,170 L370,200 L410,200 L410,180 L450,180 L450,220 L485,220 L485,250 L515,250 L515,320 Z"/>
+
+  <!-- Aon Center (tall flat-top white slab) -->
+  <path d="M515,320 L515,210 L545,210 L545,80 L605,80 L605,210 L630,210 L630,320 Z"/>
+
+  <!-- Two Prudential-style buildings -->
+  <path d="M630,320 L630,220 L665,220 L665,140 L700,140 L700,220 L735,220 L735,320 Z"/>
+
+  <!-- Willis (Sears) Tower with twin antennas -->
+  <g>
+    <path d="M735,320 L735,200 L770,200 L770,170 L800,170 L800,140 L830,140 L830,110 L860,110 L860,60 L905,60 L905,110 L935,110 L935,140 L965,140 L965,170 L995,170 L995,200 L1025,200 L1025,320 Z"/>
+    <rect x="872" y="10" width="4" height="50"/>
+    <rect x="889" y="2" width="4" height="58"/>
+  </g>
+
+  <!-- Trump Tower w/ spire -->
+  <g>
+    <path d="M1025,320 L1025,210 L1055,210 L1055,170 L1085,170 L1085,130 L1110,130 L1110,90 L1140,90 L1140,130 L1165,130 L1165,170 L1195,170 L1195,210 L1225,210 L1225,320 Z"/>
+    <rect x="1124" y="30" width="2" height="60"/>
+  </g>
+
+  <!-- John Hancock (tapered) with twin antennas -->
+  <g>
+    <polygon points="1225,320 1225,220 1255,220 1268,75 1308,75 1321,220 1350,220 1350,320"/>
+    <rect x="1278" y="20" width="3" height="55"/>
+    <rect x="1295" y="25" width="3" height="50"/>
+  </g>
+
+  <!-- Right: misc towers -->
+  <path d="M1350,320 L1350,230 L1380,230 L1380,180 L1410,180 L1410,150 L1440,150 L1440,200 L1470,200 L1470,170 L1500,170 L1500,210 L1535,210 L1535,190 L1570,190 L1570,225 L1600,225 L1600,320 Z"/>
+</svg>
