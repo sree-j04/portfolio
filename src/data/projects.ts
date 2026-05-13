@@ -1,9 +1,16 @@
 export type ProjectCategory = "academic" | "ai" | "industry";
 
+export type IndustrySector =
+  | "Financial Services"
+  | "Healthcare and Life Sciences"
+  | "Government and Public"
+  | "Operations"
+  | "Risk and Compliance";
+
 export type ProjectLink = {
   label: string;
   url: string;
-  type: "demo" | "github" | "figma" | "case-study";
+  type: "demo" | "github" | "figma" | "case-study" | "video";
 };
 
 export type Project = {
@@ -13,6 +20,7 @@ export type Project = {
   description: string;
   tech: string[];
   category: ProjectCategory;
+  sector?: IndustrySector;
   links: ProjectLink[];
   year: string;
 };
@@ -22,6 +30,15 @@ export type ProjectGroup = {
   title: string;
   blurb: string;
   projects: Project[];
+};
+
+// Maps each industry sector to a CSS variable accent color
+export const SECTOR_COLORS: Record<IndustrySector, string> = {
+  "Financial Services": "var(--terracotta)",
+  "Healthcare and Life Sciences": "var(--mustard)",
+  "Government and Public": "var(--sage)",
+  Operations: "var(--clay)",
+  "Risk and Compliance": "var(--dusty-blue)", // add --dusty-blue to your CSS vars (see note below)
 };
 
 export const projectGroups: ProjectGroup[] = [
@@ -103,7 +120,37 @@ export const projectGroups: ProjectGroup[] = [
     blurb:
       "Ongoing work applying AI to real-world business problems across finance, healthcare, and operations. Updated as new projects ship.",
     projects: [
-      // Add projects here as you build them, e.g.:
+      {
+        slug: "regulatory-change-monitor",
+        title: "Regulatory Change Monitor",
+        tagline: "Autonomous regulatory intelligence for financial compliance",
+        description:
+          "Most compliance teams at large financial institutions still have analysts whose job is basically reading government websites all day, waiting for something new to drop. When it does, they have to manually trace whether it affects their organization, which processes it touches, and whether there are any gaps. It's slow, it's expensive, and missing something can cost a firm hundreds of millions in fines. This Regulatory Change Management app handles this automatically. It watches seven major US regulators around the clock (the Fed, SEC, OCC, FDIC, CFPB, FinCEN, and CFTC), pulls every new rule and guidance document they publish, and runs each one through Claude to produce a plain-English summary, an impact severity rating, and a breakdown of which internal compliance processes are affected. If something new requires action your current processes don't cover, it flags the gap, assigns a severity level, and generates a specific remediation recommendation with a suggested timeline. Everything surfaces in a live dashboard so your compliance posture is visible at a glance, not buried in a spreadsheet somewhere.",
+        tech: [
+          "Python",
+          "Claude API",
+          "Streamlit",
+          "BeautifulSoup",
+          "pandas",
+          "SQLite",
+        ],
+        category: "industry",
+        sector: "Financial Services",
+        year: "2026",
+        links: [
+          {
+            label: "GitHub",
+            url: "https://github.com/sree-j04/regulatory-change-monitor", // replace with your actual repo URL
+            type: "github",
+          },
+          {
+            label: "Watch Demo",
+            url: "https://youtu.be/YwjZPhpp8zU", // replace with your actual demo video URL
+            type: "video",
+          },
+        ],
+      },
+      // Add more industry projects here as you build them:
       // {
       //   slug: "project-slug",
       //   title: "Project Title",
@@ -111,8 +158,12 @@ export const projectGroups: ProjectGroup[] = [
       //   description: "Longer description.",
       //   tech: ["Python", "LangChain"],
       //   category: "industry",
+      //   sector: "Healthcare and Life Sciences",
       //   year: "2026",
-      //   links: [{ label: "Case Study", url: "#", type: "case-study" }],
+      //   links: [
+      //     { label: "GitHub", url: "#", type: "github" },
+      //     { label: "Watch Demo", url: "#", type: "video" },
+      //   ],
       // },
     ],
   },

@@ -9,13 +9,13 @@ export default function Hero() {
       className="relative min-h-screen flex items-center px-6 pt-24 overflow-hidden"
     >
       <img
-        src="/chicago-skyline.svg"
+        src="/chicago-skyline.jpg"
         alt=""
         aria-hidden="true"
-        className="pointer-events-none absolute inset-x-0 bottom-0 z-0 h-[42%] w-full object-cover object-bottom text-walnut opacity-25"
+        className="pointer-events-none absolute inset-x-0 bottom-0 z-0 h-[55%] w-full object-cover object-bottom opacity-70 [filter:sepia(0.35)_saturate(0.9)_hue-rotate(-10deg)]"
       />
       <div
-        className="pointer-events-none absolute inset-x-0 bottom-0 z-0 h-[42%] bg-gradient-to-t from-background/10 via-background/65 to-background"
+        className="pointer-events-none absolute inset-x-0 bottom-0 z-0 h-[55%] bg-gradient-to-t from-background/10 via-background/30 to-background"
         aria-hidden="true"
       />
       <div className="relative max-w-6xl mx-auto w-full grid md:grid-cols-12 gap-12 items-center">

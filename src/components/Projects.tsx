@@ -1,10 +1,18 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ExternalLink, Github, Figma, FileText } from "lucide-react";
+import {
+  ExternalLink,
+  Github,
+  Figma,
+  FileText,
+  PlayCircle,
+} from "lucide-react";
 import {
   projectGroups,
   type Project,
   type ProjectLink,
+  type IndustrySector,
+  SECTOR_COLORS,
 } from "../data/projects";
 
 const linkIcon = (type: ProjectLink["type"]) => {
@@ -15,17 +23,49 @@ const linkIcon = (type: ProjectLink["type"]) => {
       return <Figma className="w-4 h-4" />;
     case "case-study":
       return <FileText className="w-4 h-4" />;
+    case "video":
+      return <PlayCircle className="w-4 h-4" />;
     default:
       return <ExternalLink className="w-4 h-4" />;
   }
 };
 
+// For non-industry project cards (academic / ai), cycle through accents by index
 const ACCENT_VARS = [
   "var(--mustard)",
   "var(--terracotta)",
   "var(--sage)",
   "var(--clay)",
 ];
+
+// Resolve the left-border color for a card
+function cardAccent(
+  category: Project["category"],
+  sector: IndustrySector | undefined,
+  idx: number,
+): string {
+  if (category === "industry" && sector && SECTOR_COLORS[sector]) {
+    return `hsl(${SECTOR_COLORS[sector]})`;
+  }
+  return `hsl(${ACCENT_VARS[idx % ACCENT_VARS.length]})`;
+}
+
+// Sector badge shown inside the modal
+function SectorBadge({ sector }: { sector: IndustrySector }) {
+  const color = SECTOR_COLORS[sector];
+  return (
+    <span
+      className="inline-block text-xs font-medium tracking-wide px-2.5 py-1 rounded-full border mb-6"
+      style={{
+        color: `hsl(${color})`,
+        borderColor: `hsl(${color} / 0.4)`,
+        background: `hsl(${color} / 0.08)`,
+      }}
+    >
+      {sector}
+    </span>
+  );
+}
 
 export default function Projects() {
   const [active, setActive] = useState<Project | null>(null);
@@ -76,7 +116,11 @@ export default function Projects() {
                         aria-hidden="true"
                         className="absolute left-0 top-0 h-full w-2"
                         style={{
-                          backgroundColor: `hsl(${ACCENT_VARS[idx % ACCENT_VARS.length]})`,
+                          backgroundColor: cardAccent(
+                            p.category,
+                            p.sector,
+                            idx,
+                          ),
                         }}
                       />
 
@@ -88,6 +132,16 @@ export default function Projects() {
                       </div>
 
                       <p className="text-sm text-walnut/75 mb-4">{p.tagline}</p>
+
+                      {/* Sector label on industry cards */}
+                      {p.sector && (
+                        <p
+                          className="text-xs font-medium mb-3"
+                          style={{ color: `hsl(${SECTOR_COLORS[p.sector]})` }}
+                        >
+                          {p.sector}
+                        </p>
+                      )}
 
                       <div className="flex flex-wrap gap-1.5">
                         {p.tech.slice(0, 4).map((t) => (
@@ -110,6 +164,7 @@ export default function Projects() {
         </div>
       </div>
 
+      {/* ── Detail Modal ── */}
       <AnimatePresence>
         {active && (
           <motion.div
@@ -127,18 +182,28 @@ export default function Projects() {
               className="max-w-2xl w-full p-8 max-h-[85vh] overflow-y-auto rounded-xl border border-terracotta/25 shadow-2xl"
               style={{ background: "hsl(var(--cream))" }}
             >
+              {/* Title row */}
               <div className="flex items-baseline justify-between mb-2">
                 <h3 className="font-serif font-light text-3xl tracking-tight text-walnut">
                   {active.title}
                 </h3>
                 <span className="text-sm text-walnut/60">{active.year}</span>
               </div>
-              <p className="text-terracotta-deep mb-6 italic">
+
+              {/* Tagline */}
+              <p className="text-terracotta-deep mb-4 italic">
                 {active.tagline}
               </p>
+
+              {/* Sector badge (industry only) */}
+              {active.sector && <SectorBadge sector={active.sector} />}
+
+              {/* Description */}
               <p className="text-walnut/85 leading-relaxed mb-6">
                 {active.description}
               </p>
+
+              {/* Tech chips */}
               <div className="flex flex-wrap gap-2 mb-6">
                 {active.tech.map((t) => (
                   <span key={t} className="chip">
@@ -146,6 +211,8 @@ export default function Projects() {
                   </span>
                 ))}
               </div>
+
+              {/* Links — GitHub left, demo video right (visually distinct) */}
               {active.links.length > 0 && (
                 <div className="flex flex-wrap gap-3">
                   {active.links.map((l) => (
@@ -154,7 +221,11 @@ export default function Projects() {
                       href={l.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 px-4 py-2 rounded-md bg-walnut text-cream hover:bg-terracotta-deep transition-colors text-sm"
+                      className={
+                        l.type === "video"
+                          ? "inline-flex items-center gap-2 px-4 py-2 rounded-md border border-terracotta text-terracotta-deep hover:bg-terracotta/10 transition-colors text-sm font-medium"
+                          : "inline-flex items-center gap-2 px-4 py-2 rounded-md bg-walnut text-cream hover:bg-terracotta-deep transition-colors text-sm"
+                      }
                     >
                       {linkIcon(l.type)}
                       {l.label}
@@ -162,6 +233,7 @@ export default function Projects() {
                   ))}
                 </div>
               )}
+
               <button
                 onClick={() => setActive(null)}
                 className="mt-6 text-sm text-walnut/60 hover:text-terracotta-deep"
