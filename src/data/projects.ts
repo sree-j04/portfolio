@@ -150,21 +150,38 @@ export const projectGroups: ProjectGroup[] = [
           },
         ],
       },
-      // Add more industry projects here as you build them:
-      // {
-      //   slug: "project-slug",
-      //   title: "Project Title",
-      //   tagline: "One-line tagline",
-      //   description: "Longer description.",
-      //   tech: ["Python", "LangChain"],
-      //   category: "industry",
-      //   sector: "Healthcare and Life Sciences",
-      //   year: "2026",
-      //   links: [
-      //     { label: "GitHub", url: "#", type: "github" },
-      //     { label: "Watch Demo", url: "#", type: "video" },
-      //   ],
-      // },
+      {
+        slug: "policy-document-intelligence",
+        title: "Policy Document Intelligence",
+        tagline:
+          "AI-powered policy intelligence for government document compliance",
+        description:
+          "Government analysts, policy researchers, and public administrators spend enormous amounts of time manually searching through hundreds of pages of policy documents to find specific rules, eligibility criteria, and procedures. A missed detail or misread clause can mean non-compliance, incorrect benefit determinations, or costly legal exposure. This Policy Document Intelligence system solves that with a RAG (Retrieval-Augmented Generation) pipeline built specifically for government documents. You upload any collection of policy PDFs or text files — federal regulations, agency guidance, program manuals — and the system chunks, embeds, and indexes them into a semantic vector store. Ask any natural-language question and it retrieves the most relevant passages, sends them to Claude, and returns a precise answer where every single factual claim is traced back to a specific document and page number. No hallucinated policy, no unsourced claims. The web interface lets you upload documents, query across your entire policy library, and browse the full citation trail for every answer.",
+        tech: [
+          "Python",
+          "Claude API",
+          "Streamlit",
+          "ChromaDB",
+          "pandas",
+          "PyPDF2",
+          "sentence-transformers",
+        ],
+        category: "industry",
+        sector: "Government and Public",
+        year: "2026",
+        links: [
+          {
+            label: "GitHub",
+            url: "https://github.com/sree-j04/policy-doc-intelligence", // replace with your actual repo URL
+            type: "github",
+          },
+          {
+            label: "Watch Demo",
+            url: "https://youtu.be/CuszbVOzdIo", // replace with your actual demo video URL
+            type: "video",
+          },
+        ],
+      },
     ],
   },
 ];
