@@ -140,12 +140,12 @@ export const projectGroups: ProjectGroup[] = [
         links: [
           {
             label: "GitHub",
-            url: "https://github.com/sree-j04/regulatory-change-monitor", // replace with your actual repo URL
+            url: "https://github.com/sree-j04/regulatory-change-monitor",
             type: "github",
           },
           {
             label: "Watch Demo",
-            url: "https://youtu.be/YwjZPhpp8zU", // replace with your actual demo video URL
+            url: "https://youtu.be/YwjZPhpp8zU",
             type: "video",
           },
         ],
@@ -172,12 +172,42 @@ export const projectGroups: ProjectGroup[] = [
         links: [
           {
             label: "GitHub",
-            url: "https://github.com/sree-j04/policy-doc-intelligence", // replace with your actual repo URL
+            url: "https://github.com/sree-j04/policy-doc-intelligence",
             type: "github",
           },
           {
             label: "Watch Demo",
-            url: "https://youtu.be/CuszbVOzdIo", // replace with your actual demo video URL
+            url: "https://youtu.be/CuszbVOzdIo",
+            type: "video",
+          },
+        ],
+      },
+      {
+        slug: "healthguard-ai",
+        title: "Healthguard AI",
+        tagline: "AI-powered clinical decision support for hospital staff",
+        description:
+          "Nurses, residents, and clinical staff constantly need to cross-reference drug interactions, interpret abnormal lab values, and make rapid triage decisions, often under time pressure and without quick access to a reliable reference. A missed drug interaction or misread critical lab value can directly harm a patient. HealthGuard AI solves that by combining a structured clinical knowledge base with Claude to give hospital staff instant, evidence-based answers in plain language. The system classifies every incoming query by intent: drug interaction, lab interpretation, triage, or protocol lookup, and then pulls the relevant structured data from its built-in clinical database (8 drug profiles with severity-rated interactions, 20+ lab reference ranges with critical value thresholds, ESI triage protocols, Sepsis-3 and stroke bundles, and 20 ICD-10 codes) before sending it all to Claude for a contextualized response. The result is a chat interface where staff can describe a patient scenario in plain English and get a structured, clinically grounded answer with urgency flags, normal range comparisons, interaction severity ratings, and protocol checklists, in seconds.",
+        tech: [
+          "Python",
+          "Flask",
+          "Claude API",
+          "Vanilla JS",
+          "CSS",
+          "clinical knowledge base (drug DB, lab ranges, triage protocols)",
+        ],
+        category: "industry",
+        sector: "Healthcare and Life Sciences",
+        year: "2026",
+        links: [
+          {
+            label: "GitHub",
+            url: "https://github.com/sree-j04/healthguard-ai",
+            type: "github",
+          },
+          {
+            label: "Watch Demo",
+            url: "https://youtu.be/ZnB9t8-FhMQ",
             type: "video",
           },
         ],
